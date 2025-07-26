@@ -48,7 +48,7 @@ public class PlayerMovementStats : ScriptableObject
   [Header("Jump Visualization Tool")]
   public bool showWalkJumpArc = false;
   public bool showRunJumpArc = false;
-  public bool showOnCollision = true;
+  public bool stopOnCollision = true;
   public bool drawRight = true;
   [Range(5, 100)] public int arcResolution = 20;
   [Range(0, 500)] public int visualizationSteps = 90;

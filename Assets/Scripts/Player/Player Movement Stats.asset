@@ -37,9 +37,9 @@ MonoBehaviour:
   jumpCoyoteTime: 0.1
   debugShowIsGroundedBox: 1
   debugShowHeadBumpedBox: 1
-  showWalkJumpArc: 0
-  showRunJumpArc: 0
-  showOnCollision: 1
+  showWalkJumpArc: 1
+  showRunJumpArc: 1
+  stopOnCollision: 1
   drawRight: 1
   arcResolution: 20
   visualizationSteps: 90
