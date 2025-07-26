@@ -1,40 +1,25 @@
 fileFormatVersion: 2
-guid: 416d9c2c80302434ab875a25fa5b1c11
+guid: 734171c15791ed3469f9693e1964256e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6367560908665664636
-    second: Idle (32x32)_0
+      213: -9101230857065804138
+    second: Double Jump (32x32)_0
   - first:
-      213: -6056987297122131021
-    second: Idle (32x32)_1
+      213: -6204479477933590408
+    second: Double Jump (32x32)_1
   - first:
-      213: 8416797952724722639
-    second: Idle (32x32)_2
+      213: 7040038629683462113
+    second: Double Jump (32x32)_2
   - first:
-      213: 4883129791460916795
-    second: Idle (32x32)_3
+      213: 781615245368611544
+    second: Double Jump (32x32)_3
   - first:
-      213: 4278371960119211202
-    second: Idle (32x32)_4
+      213: -3939753913355333839
+    second: Double Jump (32x32)_4
   - first:
-      213: 8644832591467991550
-    second: Idle (32x32)_5
-  - first:
-      213: -7152759390613953277
-    second: Idle (32x32)_6
-  - first:
-      213: 6456874251884481089
-    second: Idle (32x32)_7
-  - first:
-      213: -2526832996998184344
-    second: Idle (32x32)_8
-  - first:
-      213: 4392827059107796345
-    second: Idle (32x32)_9
-  - first:
-      213: -1363835404106015672
-    second: Idle (32x32)_10
+      213: 6301718139250434432
+    second: Double Jump (32x32)_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -156,7 +141,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle_0
+      name: Double Jump (32x32)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -169,16 +154,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: a92c684a0e54f264ca9091d0cff3df3b
-      internalID: 2065404434
+      spriteID: 69ec4c181cee1b180800000000000000
+      internalID: -9101230857065804138
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_1
+      name: Double Jump (32x32)_1
       rect:
         serializedVersion: 2
         x: 32
@@ -191,16 +176,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 70f680990bfb8d8438913ec02625edc9
-      internalID: -527395042
+      spriteID: 878319d99c245e9a0800000000000000
+      internalID: -6204479477933590408
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_2
+      name: Double Jump (32x32)_2
       rect:
         serializedVersion: 2
         x: 64
@@ -213,16 +198,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: a21b3bbe1e3fea64c984776a30379467
-      internalID: -1956238532
+      spriteID: 1ef7f4f75dd33b160800000000000000
+      internalID: 7040038629683462113
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_3
+      name: Double Jump (32x32)_3
       rect:
         serializedVersion: 2
         x: 96
@@ -235,16 +220,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ab8396f5194eecc429c3408b83010eda
-      internalID: -380696791
+      spriteID: 8d2d93bacead8da00800000000000000
+      internalID: 781615245368611544
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_4
+      name: Double Jump (32x32)_4
       rect:
         serializedVersion: 2
         x: 128
@@ -257,16 +242,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 45cf4fda9c792ec49830771b2d4c51f8
-      internalID: 1436424562
+      spriteID: 13f000480be2359c0800000000000000
+      internalID: -3939753913355333839
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_5
+      name: Double Jump (32x32)_5
       rect:
         serializedVersion: 2
         x: 160
@@ -279,120 +264,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 07b9aeba9ee8abf409147dc6d8fb7291
-      internalID: 828520348
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a35581dc26c6b9a43a58c4078f00b6f5
-      internalID: -522829777
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle_7
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a59d7615f27909e43ae66e90f19ec853
-      internalID: -1922637971
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle_8
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9c200c083253ca340ab33588af2e8d8b
-      internalID: -1711531556
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle_9
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ed2b9db93c145fb4da267950d7b0fd3e
-      internalID: -1216482431
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle_10
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9a93913a2dfeae447a5b498ab1adf833
-      internalID: -2097263593
+      spriteID: 08168ac7243347750800000000000000
+      internalID: 6301718139250434432
       vertices: []
       indices: 
       edges: []
@@ -401,7 +276,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5baaf5d9abe5c224aaae62db539766a7
+    spriteID: 7aa6d6694176f544499be223974bec8a
     internalID: 0
     vertices: []
     indices: 
@@ -411,17 +286,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Idle_0: 2065404434
-      Idle_1: -527395042
-      Idle_10: -2097263593
-      Idle_2: -1956238532
-      Idle_3: -380696791
-      Idle_4: 1436424562
-      Idle_5: 828520348
-      Idle_6: -522829777
-      Idle_7: -1922637971
-      Idle_8: -1711531556
-      Idle_9: -1216482431
+      Double Jump (32x32)_0: -9101230857065804138
+      Double Jump (32x32)_1: -6204479477933590408
+      Double Jump (32x32)_2: 7040038629683462113
+      Double Jump (32x32)_3: 781615245368611544
+      Double Jump (32x32)_4: -3939753913355333839
+      Double Jump (32x32)_5: 6301718139250434432
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
