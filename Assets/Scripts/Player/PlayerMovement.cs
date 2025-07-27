@@ -62,8 +62,6 @@ public class PlayerMovement : MonoBehaviour
         CountTimers();
         JumpChecks();
 
-        Debug.Log($"Vertical Velocity: {verticalVelocity}, Is Jumping: {_isJumping}, Is Falling: {_isFalling}, Is Fast Falling: {_isFastFalling}, Is Grounded: {_isGrounded}");
-
         _animator.SetBool("isFalling", _isFalling || _isFastFalling);
     }
 
@@ -127,8 +125,6 @@ public class PlayerMovement : MonoBehaviour
         {
             InitiateJump(2);
             _isFastFalling = false;
-
-            // _animator.SetTrigger("jump");
         }
 
         // landed
