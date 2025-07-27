@@ -15,7 +15,7 @@ MonoBehaviour:
   maxWalkSpeed: 10
   groundAcceleration: 10
   groundDeceleration: 20
-  airAcceleration: 5
+  airAcceleration: 7.5
   airDeceleration: 5
   maxRunSpeed: 20
   groundLayer:
@@ -32,7 +32,7 @@ MonoBehaviour:
   numberOfJumpsAllowed: 2
   timeforUpwardsCancel: 0.027
   apexThreshold: 0.97
-  apexHangTime: 0.075
+  apexHangTime: 0.077
   jumpBufferTime: 0.125
   jumpCoyoteTime: 0.1
   debugShowIsGroundedBox: 1

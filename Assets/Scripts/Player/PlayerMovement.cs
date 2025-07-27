@@ -248,6 +248,11 @@ public class PlayerMovement : MonoBehaviour
         // clamp fall speed
         verticalVelocity = Mathf.Clamp(verticalVelocity, -movementStats.maxFallSpeed, 50f);
 
+        if (_isJumping && !_isGrounded && verticalVelocity < 0f)
+        {
+            _isFalling = true;
+        }
+
         _rigidbody.linearVelocity = new Vector2(_rigidbody.linearVelocityX, verticalVelocity);
     }
 
