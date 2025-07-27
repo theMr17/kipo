@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     public PlayerMovementStats movementStats;
     [SerializeField] private Collider2D _feetCollider;
     [SerializeField] private Collider2D _headCollider;
+    [SerializeField] private Animator _animator;
 
     private Rigidbody2D _rigidbody;
 
@@ -48,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
         if (_isGrounded)
         {
             Move(movementStats.groundAcceleration, movementStats.groundDeceleration, InputManager.movement);
+            _animator.SetBool("isMoving", Mathf.Abs(_moveVelocity.x) > 0.1f);
         }
         else
         {
@@ -59,6 +61,10 @@ public class PlayerMovement : MonoBehaviour
     {
         CountTimers();
         JumpChecks();
+
+        Debug.Log($"Vertical Velocity: {verticalVelocity}, Is Jumping: {_isJumping}, Is Falling: {_isFalling}, Is Fast Falling: {_isFastFalling}, Is Grounded: {_isGrounded}");
+
+        _animator.SetBool("isFalling", _isFalling || _isFastFalling);
     }
 
     private void JumpChecks()
@@ -89,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else
                 {
-                    _isFacingRight = true;
+                    _isFastFalling = true;
                     _fastFallReleaseSpeed = verticalVelocity;
                 }
             }
@@ -105,18 +111,24 @@ public class PlayerMovement : MonoBehaviour
                 _isFastFalling = true;
                 _fastFallReleaseSpeed = verticalVelocity;
             }
+
+            _animator.SetTrigger("jump");
         }
         // double jump
         else if (_jumpBufferTime > 0f && _isJumping && _numberOfJumpsUsed < movementStats.numberOfJumpsAllowed)
         {
-            _isFastFalling = false;
             InitiateJump(1);
+            _isFastFalling = false;
+
+            _animator.SetTrigger("doubleJump");
         }
         // air jump after coyote time lapsed
         else if (_jumpBufferTime > 0f && _isFalling && _numberOfJumpsUsed < movementStats.numberOfJumpsAllowed - 1)
         {
             InitiateJump(2);
             _isFastFalling = false;
+
+            // _animator.SetTrigger("jump");
         }
 
         // landed
@@ -130,6 +142,8 @@ public class PlayerMovement : MonoBehaviour
             _numberOfJumpsUsed = 0;
 
             verticalVelocity = Physics2D.gravity.y;
+
+            _animator.SetBool("isFalling", false);
         }
     }
 
@@ -220,7 +234,7 @@ public class PlayerMovement : MonoBehaviour
             _fastFallTime += Time.fixedDeltaTime;
         }
 
-        // normal gravity white falling
+        // normal gravity while falling
         if (!_isGrounded && !_isJumping)
         {
             if (!_isFalling)

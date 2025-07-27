@@ -750,6 +750,7 @@ MonoBehaviour:
   movementStats: {fileID: 11400000, guid: 17a5b6f3aadcefb4d9c825377ee025cf, type: 2}
   _feetCollider: {fileID: 975375864}
   _headCollider: {fileID: 594711781}
+  _animator: {fileID: 1341427051}
 --- !u!1 &1430031739
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,8 +833,8 @@ Transform:
   m_GameObject: {fileID: 1430031739}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.08, y: -1.28, z: 0}
-  m_LocalScale: {x: 7.707861, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -3.39, z: 0}
+  m_LocalScale: {x: 14.408304, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
