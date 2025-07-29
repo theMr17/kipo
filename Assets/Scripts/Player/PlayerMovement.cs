@@ -1,7 +1,10 @@
+using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
+    public static PlayerMovement LocalInstance { get; private set; }
+
     [Header("References")]
     public PlayerMovementStats movementStats;
     [SerializeField] private Collider2D _feetCollider;
@@ -35,6 +38,13 @@ public class PlayerMovement : MonoBehaviour
 
     private float _coyoteTimer;
 
+    public override void OnNetworkSpawn()
+    {
+        int playerIndex = 0;
+        transform.position = SpawnManager.Instance.GetSpawnPoint(playerIndex).position;
+        SpawnManager.Instance.SetSpawnPointOccupancy(playerIndex, true);
+    }
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -43,6 +53,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!IsOwner)
+        {
+            return;
+        }
+
         CollisionChecks();
         Jump();
 
@@ -59,6 +74,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (!IsOwner)
+        {
+            return;
+        }
+        
         CountTimers();
         JumpChecks();
 
