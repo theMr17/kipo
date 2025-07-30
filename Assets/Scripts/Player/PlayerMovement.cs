@@ -40,6 +40,12 @@ public class PlayerMovement : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
+        if (IsOwner)
+        {
+            LocalInstance = this;
+            FollowCamera.Instance.SetFollowTarget(transform);
+        }
+
         int playerIndex = 0;
         transform.position = SpawnManager.Instance.GetSpawnPoint(playerIndex).position;
         SpawnManager.Instance.SetSpawnPointOccupancy(playerIndex, true);
