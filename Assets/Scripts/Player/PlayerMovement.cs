@@ -130,6 +130,9 @@ public class PlayerMovement : NetworkBehaviour
         {
             InitiateJump(1);
 
+            _isFalling = false;
+            _animator.SetBool("isFalling", false);
+
             if (_jumpReleasedDuringBuffer)
             {
                 _isFastFalling = true;
