@@ -122,6 +122,21 @@ public class LobbyManager : MonoBehaviour
             OnJoinFailed?.Invoke(this, EventArgs.Empty);
         }
     }
+    public async void DeleteLobby() {
+        if(_joinedLobby != null) {
+            try {
+                await LobbyService.Instance.DeleteLobbyAsync(_joinedLobby.Id);
+
+                _joinedLobby = null;
+            } catch (LobbyServiceException e) {
+                Debug.Log(e);
+            }
+        }
+    }
+
+    public Lobby GetLobby() {
+        return _joinedLobby;
+    }
     
     private async Task<Allocation> AllocationRelay()
     {
