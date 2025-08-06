@@ -6,11 +6,17 @@ public class FollowCamera : MonoBehaviour
     public static FollowCamera Instance { get; private set; }
 
     private CinemachineCamera _cinemachineCamera;
-    private CinemachineCameraOffset _cameraOffset;
+    private CinemachineCameraOffset _cinemachineCameraOffset;
+    private CinemachinePositionComposer _cinemachineCameraPositionComposer;
 
-    [Header("Camera Bias")]
-    public float forwardOffset = 3f;
+    [Header("Forward Bias")]
+    public float forwardOffset = 0.8f;
     public float biasSmoothTime = 0.2f;
+
+    [Header("Vertical Bias")]
+    public float verticalFallBias = -0.9f;
+    public float fallBiasSmoothTime = 0.1f;
+    private float _defaultBiasSmoothTime;
 
     private Transform _targetTransform;
     private bool _isFacingRight = true;
@@ -18,14 +24,23 @@ public class FollowCamera : MonoBehaviour
     private Vector3 _currentOffset;
     private Vector3 _targetOffset;
     private Vector3 _offsetVelocity;
+    private Vector3 _defaultDamping = new Vector3(0.75f, 2, 0);
+
+    private Vector3 _currentDamping;
+    private Vector3 _targetDamping;
+    public float dampingLerpSpeed = 5f;
 
     private void Awake()
     {
         Instance = this;
         _cinemachineCamera = GetComponent<CinemachineCamera>();
-        _cameraOffset = GetComponent<CinemachineCameraOffset>();
+        _cinemachineCameraOffset = GetComponent<CinemachineCameraOffset>();
+        _cinemachineCameraPositionComposer = GetComponent<CinemachinePositionComposer>();
         _currentOffset = Vector3.zero;
         _targetOffset = new Vector3(forwardOffset, 0, 0);
+        _defaultBiasSmoothTime = biasSmoothTime;
+        _currentDamping = _defaultDamping;
+        _targetDamping = _defaultDamping;
     }
 
     public void SetFollowTarget(Transform targetTransform)
@@ -50,14 +65,29 @@ public class FollowCamera : MonoBehaviour
         // Do not call UpdateCameraBias here, let LateUpdate handle smooth transition
     }
 
+    public void OnPlayerFastFall()
+    {
+        biasSmoothTime = fallBiasSmoothTime;
+        _targetDamping = Vector3.zero;
+        SetBiasOffset(new Vector3(0, verticalFallBias, 0));
+    }
+
+    public void OnPlayerStopFastFall()
+    {
+        biasSmoothTime = _defaultBiasSmoothTime;
+        _targetDamping = _defaultDamping;
+        SetBiasOffset(new Vector3(_isFacingRight ? forwardOffset : -forwardOffset, 0, 0));
+    }
+
     private void LateUpdate()
     {
         UpdateCameraBias();
+        UpdateCameraDamping();
     }
 
     private void UpdateCameraBias(bool instant = false)
     {
-        if (_cameraOffset == null) return;
+        if (_cinemachineCameraOffset == null) return;
         if (instant)
         {
             _currentOffset = _targetOffset;
@@ -66,6 +96,13 @@ public class FollowCamera : MonoBehaviour
         {
             _currentOffset = Vector3.SmoothDamp(_currentOffset, _targetOffset, ref _offsetVelocity, biasSmoothTime);
         }
-        _cameraOffset.Offset = _currentOffset;
+        _cinemachineCameraOffset.Offset = _currentOffset;
+    }
+
+    private void UpdateCameraDamping()
+    {
+        if (_cinemachineCameraPositionComposer == null) return;
+        _currentDamping = Vector3.Lerp(_currentDamping, _targetDamping, dampingLerpSpeed * Time.deltaTime);
+        _cinemachineCameraPositionComposer.Damping = _currentDamping;
     }
 }

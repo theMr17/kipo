@@ -38,6 +38,10 @@ public class PlayerMovement : NetworkBehaviour
 
     private float _coyoteTimer;
 
+    // This is to set the camera to falling mode
+    private float _fallTimer = 0f;
+    private float _fallLookAheadKickInTime = 0.3f;
+
     public override void OnNetworkSpawn()
     {
         if (IsOwner)
@@ -84,11 +88,26 @@ public class PlayerMovement : NetworkBehaviour
         {
             return;
         }
-        
+
         CountTimers();
         JumpChecks();
 
         _animator.SetBool("isFalling", _isFalling || _isFastFalling);
+
+        // Falling camera bias logic
+        if (!_isGrounded && verticalVelocity < 0f)
+        {
+            _fallTimer += Time.deltaTime;
+            if (_fallTimer > _fallLookAheadKickInTime)
+            {
+                FollowCamera.Instance.OnPlayerFastFall();
+            }
+        }
+        else
+        {
+            _fallTimer = 0f;
+            FollowCamera.Instance.OnPlayerStopFastFall();
+        }
     }
 
     private void JumpChecks()
