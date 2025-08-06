@@ -113,8 +113,6 @@ public class LobbyManager : MonoBehaviour
             JoinAllocation joinAllocation = await JoinRelay(relayJoinCode);
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(AllocationUtils.ToRelayServerData(joinAllocation, "dtls"));
             NetworkManager.Singleton.StartClient();
-
-            Loader.LoadNetwork(Loader.Scene.CharacterSelectScene);
         }
         catch (LobbyServiceException e)
         {
