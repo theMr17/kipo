@@ -327,11 +327,13 @@ public class PlayerMovement : NetworkBehaviour
         {
             _isFacingRight = false;
             transform.Rotate(0f, 180f, 0f);
+            FollowCamera.Instance.OnPlayerTurn(false);
         }
         else if (!_isFacingRight && moveInput.x > 0f)
         {
             _isFacingRight = true;
             transform.Rotate(0f, -180f, 0f);
+            FollowCamera.Instance.OnPlayerTurn(true);
         }
     }
 
